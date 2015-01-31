@@ -199,6 +199,9 @@ func (u *uploader) putPart(p *part) error {
 }
 
 func (u *uploader) Close() error {
+	if u == nil {
+		return nil
+	}
 	if u.closed {
 		return syscall.EINVAL
 	}
